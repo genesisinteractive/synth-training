@@ -23,16 +23,16 @@ synth-training is part of a three-package architecture for creating, training, a
 
 | Package | Role | |
 |---------|------|-|
-| [**synth-core**](https://github.com/arghyasur1991/synth-core) | Humanoid creation, MuJoCo physics, skill architecture | Required |
+| [**synth-core**](https://github.com/genesisinteractive/synth-core) | Humanoid creation, MuJoCo physics, skill architecture | Required |
 | **synth-training** *(this repo)* | On-device RL training (SAC + PPO) and inference via TorchSharp | — |
-| [**synth-vr**](https://github.com/arghyasur1991/synth-vr) | Mixed reality interaction on Meta Quest | Optional |
+| [**synth-vr**](https://github.com/genesisinteractive/synth-vr) | Mixed reality interaction on Meta Quest | Optional |
 
 synth-core provides the physics body, motor system, and extensible skill/sense interfaces that synth-training builds on. This package implements `ISynthSkill` to add learning directly in Unity. When combined with **synth-vr**, training runs live on Meta Quest while you physically interact with the Synth in your room.
 
 ## Requirements
 
 - Unity 6000.x or later
-- [synth-core](https://github.com/arghyasur1991/synth-core) package
+- [synth-core](https://github.com/genesisinteractive/synth-core) package
 - MuJoCo Unity plugin (`org.mujoco`) — via [arghyasur1991/mujoco](https://github.com/arghyasur1991/mujoco) fork (`synth-patches` branch)
 - [TorchSharp](https://github.com/arghyasur1991/TorchSharp) fork (`unity-il2cpp-support` branch) — includes IL2CPP bridge for Quest/Android
 - Platform-specific native LibTorch libraries (see build instructions below)
@@ -53,8 +53,8 @@ Add to `Packages/manifest.json`:
 ```json
 {
   "dependencies": {
-    "com.genesis.synth.training": "https://github.com/arghyasur1991/synth-training.git",
-    "com.genesis.synth": "https://github.com/arghyasur1991/synth-core.git",
+    "com.genesis.synth.training": "https://github.com/genesisinteractive/synth-training.git",
+    "com.genesis.synth": "https://github.com/genesisinteractive/synth-core.git",
     "org.mujoco": "https://github.com/arghyasur1991/mujoco.git?path=unity#synth-patches"
   }
 }
